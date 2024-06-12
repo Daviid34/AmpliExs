@@ -19,13 +19,13 @@ public class DurationVisitor implements TaskVisitor {
 
     public void visit(Simple simple) {
         if (visited.add(simple)) {
-            duration = simple.getDuration();
+            duration += simple.getDuration();
         }
     }
 
     public void visit(CompositeTask compositeTask) {
         if (visited.add(compositeTask)) {
-            duration = compositeTask.getTasks().stream().mapToInt(DurationVisitor::getDuration).sum();
+            duration += compositeTask.getTasks().stream().mapToInt(DurationVisitor::getDuration).sum();
         }
     }
 }
