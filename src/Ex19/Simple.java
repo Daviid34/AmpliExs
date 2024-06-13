@@ -1,7 +1,5 @@
 package Ex19;
 
-import Ex4.Money;
-
 public class Simple implements Task{
     private int cost;
     private int duration;

@@ -1,8 +1,9 @@
-package Ex4;
+package Ex4and8;
 
-public class Simple implements Task{
+public class Simple extends Task{
     private Money cost;
     private int duration;
+    private boolean hasFinished;
 
     public Simple(Money money, int duration) {
         if (duration <= 0 || money == null || !money.isPositive()) {
@@ -20,5 +21,18 @@ public class Simple implements Task{
     @Override
     public int durationInDays() {
         return this.duration;
+    }
+
+    @Override
+    public boolean hasFinished() {
+        return hasFinished;
+    }
+
+    public void finish() {
+        if (!hasFinished) {
+            hasFinished = true;
+            setChanged();
+            notifyObservers();
+        }
     }
 }

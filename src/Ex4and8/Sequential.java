@@ -1,4 +1,4 @@
-package Ex4;
+package Ex4and8;
 
 public class Sequential extends CompositeTask{
     public int durationInDays() {
